@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GuardBot - автоматическая защита Telegram групп от спама, флуда и рейдов. От $3/месяц.">
+    <title>GuardBot - Защита Telegram групп</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --transition: 0.2s ease;
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-tertiary: #1a1a24;
+            --surface: #1e1e2a;
+            --surface-hover: #252532;
+            --border: #2a2a3a;
+            --text: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #606070;
+            --accent: #7c5cff;
+            --accent-hover: #9175ff;
+            --accent-subtle: rgba(124, 92, 255, 0.15);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --gradient: linear-gradient(135deg, #7c5cff 0%, #c05cff 100%);
+        }
+
+        [data-theme="light"] {
+            --bg: #fafafa;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #f5f5f7;
+            --surface: #ffffff;
+            --surface-hover: #f0f0f5;
+            --border: #e5e5ea;
+            --text: #1a1a1f;
+            --text-secondary: #555560;
+            --text-muted: #888890;
+            --accent: #6b4ce6;
+            --accent-hover: #7c5cff;
+            --accent-subtle: rgba(107, 76, 230, 0.1);
+            --success: #059669;
+            --warning: #d97706;
+            --error: #dc2626;
+            --gradient: linear-gradient(135deg, #6b4ce6 0%, #a855f7 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background var(--transition), color var(--transition);
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER & NAV ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: all var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--text);
+            background: var(--surface);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--surface);
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--surface-hover);
+            transform: scale(1.05);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(124, 92, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface-hover);
+            border-color: var(--accent);
+        }
+
+        /* ===== MOBILE NAV ===== */
+        .mobile-toggle {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background: var(--surface);
+            border-radius: 10px;
+            cursor: pointer;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: all var(--transition);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        main {
+            padding-top: 64px;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-subtle) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-title span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .hero-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ===== FEATURES GRID ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: all var(--transition);
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-subtle);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            position: relative;
+            transition: all var(--transition);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--accent);
+            background: linear-gradient(200deg, var(--accent-subtle) 0%, var(--surface) 100%);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-name {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .pricing-period {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+        }
+
+        /* ===== COMPARISON TABLE ===== */
+        .comparison-wrapper {
+            overflow-x: auto;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-table thead {
+            background: var(--surface);
+        }
+
+        .comparison-table th {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .comparison-table th.highlight {
+            background: var(--accent-subtle);
+            color: var(--accent);
+        }
+
+        .comparison-table td {
+            color: var(--text-secondary);
+        }
+
+        .comparison-table td.highlight {
+            background: var(--accent-subtle);
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: var(--surface);
+        }
+
+        .check { color: var(--success); }
+        .cross { color: var(--error); }
+        .partial { color: var(--warning); }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            background: var(--surface);
+            border: none;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            transition: all var(--transition);
+        }
+
+        .faq-question:hover {
+            background: var(--surface-hover);
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform var(--transition);
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 24px 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ===== COMMANDS ===== */
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .command-group {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+        }
+
+        .command-group-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .command-list {
+            list-style: none;
+        }
+
+        .command-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .command-list li:last-child {
+            border-bottom: none;
+        }
+
+        .command-list code {
+            background: var(--bg-tertiary);
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            background: var(--gradient);
+            border-radius: var(--radius-lg);
+            padding: 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-desc {
+            opacity: 0.9;
+            margin-bottom: 32px;
+            font-size: 1.1rem;
+        }
+
+        .cta-section .btn {
+            background: white;
+            color: var(--accent);
+        }
+
+        .cta-section .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-inner nav {
+                display: none;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                border-bottom: 1px solid var(--border);
+                padding: 16px;
+                flex-direction: column;
+            }
+
+            .header-inner nav.open {
+                display: flex;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-section {
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">🛡️</div>
+                GuardBot
+            </a>
+            
+            <nav id="nav">
+                <a class="nav-link active" data-page="home">Главная</a>
+                <a class="nav-link" data-page="features">Функции</a>
+                <a class="nav-link" data-page="pricing">Тарифы</a>
+                <a class="nav-link" data-page="compare">Сравнение</a>
+                <a class="nav-link" data-page="docs">Документация</a>
+                <a class="nav-link" data-page="faq">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">🌙</button>
+                <a href="https://t.me/ForGuardPayBot" class="btn btn-primary">Начать</a>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME PAGE -->
+        <div class="page active" id="page-home">
+            <section class="hero">
+                <div class="container hero-content">
+                    <div class="hero-badge">✨ Защита 2,000+ групп</div>
+                    <h1 class="hero-title">Защитите группу от спама <span>за 3 минуты</span></h1>
+                    <p class="hero-desc">GuardBot — автоматическая защита Telegram групп 24/7. Блокирует спам, флуд, рейды и ботов без вашего участия.</p>
+                    <div class="hero-actions">
+                        <a href="https://t.me/ForGuardPayBot" class="btn btn-primary">🚀 Начать бесплатно</a>
+                        <a href="#" class="btn btn-secondary" data-page="features">Узнать больше</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">2,000+</div>
+                            <div class="hero-stat-label">Групп защищено</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">95%</div>
+                            <div class="hero-stat-label">Спама блокируется</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">24/7</div>
+                            <div class="hero-stat-label">Работает всегда</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" style="background: var(--bg-secondary);">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Почему GuardBot?</h2>
+                        <p class="section-subtitle">Всё что нужно для защиты вашей группы в одном боте</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🚫</div>
+                            <h3 class="feature-title">Антиспам</h3>
+                            <p class="feature-desc">Блокирует флуд, дубликаты, капс и эмодзи-спам. 3 уровня чувствительности.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3 class="feature-title">Анти-рейд</h3>
+                            <p class="feature-desc">Автоматически обнаруживает массовые присоединения и блокирует атаки.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✅</div>
+                            <h3 class="feature-title">Верификация</h3>
+                            <p class="feature-desc">Проверка новых участников. Удаление ботов и фейковых аккаунтов.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔗</div>
+                            <h3 class="feature-title">Фильтр ссылок</h3>
+                            <p class="feature-desc">Блокирует нежелательные ссылки с поддержкой белого списка.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="cta-section">
+                        <h2 class="cta-title">Готовы защитить группу?</h2>
+                        <p class="cta-desc">Начните с $3/мес. Настройка за 3 минуты.</p>
+                        <a href="https://t.me/ForGuardPayBot" class="btn">Начать сейчас →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FEATURES PAGE -->
+        <div class="page" id="page-features">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Все функции</h2>
+                        <p class="section-subtitle">Полный набор инструментов для защиты группы</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🚫</div>
+                            <h3 class="feature-title">Антиспам</h3>
+                            <p class="feature-desc">Флуд, дубликаты, капс, эмодзи. Настраиваемые уровни: low, medium, high.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🔗</div>
+                            <h3 class="feature-title">Фильтр ссылок</h3>
+                            <p class="feature-desc">Удаление ссылок с белым списком доменов. Защита от фишинга.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🛡️</div>
+                            <h3 class="feature-title">Анти-рейд</h3>
+                            <p class="feature-desc">Автоматический lockdown при массовых присоединениях.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">✅</div>
+                            <h3 class="feature-title">Верификация</h3>
+                            <p class="feature-desc">Кнопка, капча, математика или кастомные вопросы.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚠️</div>
+                            <h3 class="feature-title">Предупреждения</h3>
+                            <p class="feature-desc">Прогрессивная система в личку. Эскалация мутов.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🌐</div>
+                            <h3 class="feature-title">RU + EN</h3>
+                            <p class="feature-desc">Полная поддержка русского и английского языка.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3 class="feature-title">Статистика</h3>
+                            <p class="feature-desc">Детальные логи. Экспорт за 24h или 7d.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚙️</div>
+                            <h3 class="feature-title">Режим аудита</h3>
+                            <p class="feature-desc">Тестируйте правила без реальных действий.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">👋</div>
+                            <h3 class="feature-title">Приветствия</h3>
+                            <p class="feature-desc">Кастомные сообщения с медиа и кнопками.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📝</div>
+                            <h3 class="feature-title">Заметки</h3>
+                            <p class="feature-desc">Сохраняйте FAQ и правила по #тегам.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🗂️</div>
+                            <h3 class="feature-title">Бэкапы</h3>
+                            <p class="feature-desc">Экспорт и импорт всех настроек группы.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📅</div>
+                            <h3 class="feature-title">Планировщик</h3>
+                            <p class="feature-desc">Отложенные сообщения и периодические задачи.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PRICING PAGE -->
+        <div class="page" id="page-pricing">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Тарифы</h2>
+                        <p class="section-subtitle">💎 Оплата криптой — скидка 10%</p>
+                    </div>
+                    <div class="pricing-grid">
+                        <div class="pricing-card">
+                            <h3 class="pricing-name">Basic</h3>
+                            <div class="pricing-price">$3</div>
+                            <div class="pricing-period">в месяц</div>
+                            <ul class="pricing-features">
+                                <li>1 группа</li>
+                                <li>Все функции защиты</li>
+                                <li>Статистика и логи</li>
+                                <li>Поддержка 24/7</li>
+                            </ul>
+                            <a href="https://t.me/ForGuardPayBot" class="btn btn-secondary">Выбрать</a>
+                        </div>
+                        <div class="pricing-card popular">
+                            <div class="pricing-badge">🔥 Популярный</div>
+                            <h3 class="pricing-name">Pro</h3>
+                            <div class="pricing-price">$8</div>
+                            <div class="pricing-period">в месяц</div>
+                            <ul class="pricing-features">
+                                <li>3 группы</li>
+                                <li>Все функции защиты</li>
+                                <li>Приоритетная поддержка</li>
+                                <li>Расширенная статистика</li>
+                            </ul>
+                            <a href="https://t.me/ForGuardPayBot" class="btn btn-primary">Выбрать</a>
+                        </div>
+                        <div class="pricing-card">
+                            <h3 class="pricing-name">Business</h3>
+                            <div class="pricing-price">$20</div>
+                            <div class="pricing-period">в месяц</div>
+                            <ul class="pricing-features">
+                                <li>10 групп</li>
+                                <li>Все функции защиты</li>
+                                <li>VIP поддержка</li>
+                                <li>Кастомизация</li>
+                            </ul>
+                            <a href="https://t.me/ForGuardPayBot" class="btn btn-secondary">Выбрать</a>
+                        </div>
+                        <div class="pricing-card">
+                            <h3 class="pricing-name">Lifetime</h3>
+                            <div class="pricing-price">$99</div>
+                            <div class="pricing-period">навсегда</div>
+                            <ul class="pricing-features">
+                                <li>Безлимит групп</li>
+                                <li>Все функции защиты</li>
+                                <li>Пожизненная лицензия</li>
+                                <li>Первоочередная поддержка</li>
+                            </ul>
+                            <a href="https://t.me/ForGuardPayBot" class="btn btn-secondary">Выбрать</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- COMPARE PAGE -->
+        <div class="page" id="page-compare">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Сравнение с конкурентами</h2>
+                        <p class="section-subtitle">Почему GuardBot — лучший выбор</p>
+                    </div>
+                    <div class="comparison-wrapper">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Функция</th>
+                                    <th class="highlight">🛡️ GuardBot</th>
+                                    <th>Combot</th>
+                                    <th>Rose</th>
+                                    <th>Shieldy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Антиспам</td>
+                                    <td class="highlight"><span class="check">✓</span> Расширенный</td>
+                                    <td><span class="check">✓</span> Базовый</td>
+                                    <td><span class="check">✓</span> Базовый</td>
+                                    <td><span class="cross">✗</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Предупреждения в ЛС</td>
+                                    <td class="highlight"><span class="check">✓</span></td>
+                                    <td><span class="cross">✗</span></td>
+                                    <td><span class="cross">✗</span></td>
+                                    <td><span class="cross">✗</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Эскалация мутов</td>
+                                    <td class="highlight"><span class="check">✓</span> 5 мин → 24ч</td>
+                                    <td><span class="cross">✗</span></td>
+                                    <td><span class="partial">~</span> Фикс.</td>
+                                    <td><span class="cross">✗</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Русский язык</td>
+                                    <td class="highlight"><span class="check">✓</span> RU + EN</td>
+                                    <td><span class="cross">✗</span> EN</td>
+                                    <td><span class="cross">✗</span> EN</td>
+                                    <td><span class="cross">✗</span> EN</td>
+                                </tr>
+                                <tr>
+                                    <td>Анти-рейд</td>
+                                    <td class="highlight"><span class="check">✓</span> Авто</td>
+                                    <td><span class="partial">~</span> Ручной</td>
+                                    <td><span class="check">✓</span></td>
+                                    <td><span class="check">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Режим аудита</td>
+                                    <td class="highlight"><span class="check">✓</span></td>
+                                    <td><span class="cross">✗</span></td>
+                                    <td><span class="cross">✗</span></td>
+                                    <td><span class="cross">✗</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Экспорт логов</td>
+                                    <td class="highlight"><span class="check">✓</span> 24h/7d</td>
+                                    <td><span class="partial">~</span> Платно</td>
+                                    <td><span class="cross">✗</span></td>
+                                    <td><span class="cross">✗</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Цена</td>
+                                    <td class="highlight"><strong>$3/мес</strong></td>
+                                    <td>$4.99/мес</td>
+                                    <td>Бесплатно*</td>
+                                    <td>Бесплатно</td>
+                                </tr>
+                                <tr>
+                                    <td>Поддержка</td>
+                                    <td class="highlight"><span class="check">✓</span> 24/7 RU/EN</td>
+                                    <td>EN</td>
+                                    <td>Форум</td>
+                                    <td>GitHub</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="text-align: center; margin-top: 24px; color: var(--text-muted); font-size: 0.9rem;">
+                        * Rose — базовые функции бесплатно, расширенные платно
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- DOCS PAGE -->
+        <div class="page" id="page-docs">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Документация</h2>
+                        <p class="section-subtitle">Полный список команд бота</p>
+                    </div>
+                    <div class="commands-grid">
+                        <div class="command-group">
+                            <h3 class="command-group-title">👑 Администрирование</h3>
+                            <ul class="command-list">
+                                <li><code>/status</code> — статус защиты</li>
+                                <li><code>/settings</code> — настройки</li>
+                                <li><code>/on</code> / <code>/off</code> — вкл/выкл</li>
+                                <li><code>/help</code> — справка</li>
+                            </ul>
+                        </div>
+                        <div class="command-group">
+                            <h3 class="command-group-title">🛡️ Защита</h3>
+                            <ul class="command-list">
+                                <li><code>/spam level [low/medium/high]</code></li>
+                                <li><code>/links [on/off]</code></li>
+                                <li><code>/verify [on/off]</code></li>
+                                <li><code>/lockdown [on/off]</code></li>
+                            </ul>
+                        </div>
+                        <div class="command-group">
+                            <h3 class="command-group-title">⚠️ Предупреждения</h3>
+                            <ul class="command-list">
+                                <li><code>/warn @user [причина]</code></li>
+                                <li><code>/unwarn @user</code></li>
+                                <li><code>/warnings @user</code></li>
+                                <li><code>/clearwarnings @user</code></li>
+                            </ul>
+                        </div>
+                        <div class="command-group">
+                            <h3 class="command-group-title">🔇 Модерация</h3>
+                            <ul class="command-list">
+                                <li><code>/mute @user [время]</code></li>
+                                <li><code>/unmute @user</code></li>
+                                <li><code>/ban @user</code></li>
+                                <li><code>/kick @user</code></li>
+                            </ul>
+                        </div>
+                        <div class="command-group">
+                            <h3 class="command-group-title">📊 Статистика</h3>
+                            <ul class="command-list">
+                                <li><code>/logs</code> — последние действия</li>
+                                <li><code>/exportlogs [24h/7d]</code></li>
+                                <li><code>/stats</code> — статистика</li>
+                            </ul>
+                        </div>
+                        <div class="command-group">
+                            <h3 class="command-group-title">👤 Пользователи</h3>
+                            <ul class="command-list">
+                                <li><code>/language</code> — выбор языка</li>
+                                <li><code>/mystatus</code> — мои предупреждения</li>
+                                <li><code>/report</code> — жалоба</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FAQ PAGE -->
+        <div class="page" id="page-faq">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 class="section-title">Частые вопросы</h2>
+                    </div>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Как быстро настроить GuardBot?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    Настройка занимает 2-3 минуты. Оплатите подписку, получите код, добавьте бота в группу и используйте /activate.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Можно протестировать бесплатно?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    Да! Напишите в @GuardBotSupport — предоставим тестовый доступ на 7 дней.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Какие способы оплаты?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    Криптовалюта (USDT TRC20, TON) со скидкой 10% и Telegram Stars. Оплата моментальная.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Что если бот удалит нужное сообщение?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    Используйте режим аудита для тестирования правил. Настройте белые списки для админов и доменов. Все действия логируются.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Работает на русском?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    Да, полная поддержка русского языка. Поддержка отвечает на русском 24/7.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                Есть реферальная программа?
+                                <span class="faq-icon">+</span>
+                            </button>
+                            <div class="faq-answer">
+                                <div class="faq-answer-inner">
+                                    Да! 20% от каждой оплаты приглашённых. Минимум для вывода — $20. Команда /referral в @ForGuardPayBot.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://t.me/ForGuardBot">🤖 @ForGuardBot</a>
+                <a href="https://t.me/ForGuardPayBot">💳 @ForGuardPayBot</a>
+                <a href="https://t.me/GuardBotSupport">💬 Поддержка</a>
+            </div>
+            <p class="footer-copy">© 2026 GuardBot. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        html.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+
+        themeToggle.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+        });
+
+        // Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+
+        function showPage(pageId) {
+            pages.forEach(p => p.classList.remove('active'));
+            navLinks.forEach(l => l.classList.remove('active'));
+            
+            document.getElementById('page-' + pageId)?.classList.add('active');
+            document.querySelector(`.nav-link[data-page="${pageId}"]`)?.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage(link.dataset.page);
+            });
+        });
+
+        // In-page navigation buttons
+        document.querySelectorAll('[data-page]').forEach(el => {
+            if (!el.classList.contains('nav-link')) {
+                el.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showPage(el.dataset.page);
+                });
+            }
+        });
+
+        // Mobile Nav
+        const mobileToggle = document.getElementById('mobileToggle');
+        const nav = document.getElementById('nav');
+
+        mobileToggle?.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>
