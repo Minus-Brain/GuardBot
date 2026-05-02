@@ -8,12 +8,12 @@
 
   ### 🌐 [guardbot.tech](https://guardbot.tech)
 
-  > GuardBot — The ultimate Telegram anti-spam bot. Protect your groups from flood, raids, and spam automatically 24/7.
+  > GuardBot - The ultimate Telegram anti-spam bot. Protect your groups from flood, raids, and spam automatically 24/7.
 </div>
 
 ---
 
-GuardBot is a powerful Telegram moderation bot that protects your groups from spam, floods, and raids automatically — with a quick 3-minute setup.
+GuardBot is a powerful Telegram moderation bot that protects your groups from spam, floods, and raids automatically - with a quick 3-minute setup.
 
 **🔗 Official website: [https://guardbot.tech](https://guardbot.tech)**
 
