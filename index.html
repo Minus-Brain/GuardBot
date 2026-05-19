@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuardBot | Professional Telegram Group Protection & Anti-Spam</title>
+    <meta name="description" content="GuardBot - The ultimate Telegram anti-spam bot. Protect your groups from flood, raids, and spam automatically 24/7. Quick 3-minute setup.">
+    <meta name="keywords" content="GuardBot, telegram group protect, anti-spam bot, telegram moderation, block spam telegram, captcha bot, raid protection, bot for telegram group, защита телеграм групп, антиспам бот, модерация чата, бот от спама телеграм, блокировка флуда, защита от рейдов, гвардбот">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://guardbot.tech/">
+    <meta name="yandex-verification" content="8e36255d26b2627f" />
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://guardbot.tech/">
+    <meta property="og:title" content="GuardBot | Professional Telegram Group Protection & Anti-Spam">
+    <meta property="og:description" content="GuardBot - The ultimate Telegram anti-spam bot. Protect your groups from flood, raids, and spam automatically 24/7. Quick 3-minute setup.">
+    <meta property="og:image" content="https://guardbot.tech/images/Icon.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://guardbot.tech/">
+    <meta property="twitter:title" content="GuardBot | Professional Telegram Group Protection & Anti-Spam">
+    <meta property="twitter:description" content="GuardBot - The ultimate Telegram anti-spam bot. Protect your groups from flood, raids, and spam automatically 24/7. Quick 3-minute setup.">
+    <meta property="twitter:image" content="https://guardbot.tech/images/Icon.png">
+
+    <link rel="icon" type="image/png" href="images/Icon.png?v=2">
+    <link rel="apple-touch-icon" href="images/Icon.png?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "GuardBot",
+            "operatingSystem": "Telegram",
+            "applicationCategory": "SecurityApplication",
+            "offers": {
+                "@type": "Offer",
+                "price": "3.00",
+                "priceCurrency": "USD"
+            },
+            "description": "Automatic Telegram group protection against spam, flood and raids."
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "How fast is the setup?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Setup takes 2-3 minutes. Pay for subscription, get a code, add bot to the group and use /activate."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I test it for free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! Add the bot to your group and enjoy 7 days of free access!"
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What are the payment methods?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Crypto (USDT TRC20, TON) with 10% discount and Telegram Stars. Instant payment."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does it support English?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, full English support. Support team answers in English 24/7."
+                    }
+                }
+            ]
+        }
+    ]
+    </script>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109013732', 'ym');
+
+        ym(109013732, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/109013732" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+</head>
+
+<body>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="ambient-glow"></div>
+    <div class="ambient-glow-2"></div>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                GuardBot
+            </a>
+            
+            <nav id="nav">
+                <a href="#home" class="nav-link active" data-page="home" data-en="Home" data-ru="Главная">Home</a>
+                <a href="#features" class="nav-link" data-page="features" data-en="Features" data-ru="Функции">Features</a>
+                <a href="#pricing" class="nav-link" data-page="pricing" data-en="Pricing" data-ru="Тарифы">Pricing</a>
+                <a href="#compare" class="nav-link" data-page="compare" data-en="Compare" data-ru="Сравнение">Compare</a>
+                <a href="#docs" class="nav-link" data-page="docs" data-en="Docs" data-ru="Документация">Docs</a>
+                <a href="#faq" class="nav-link" data-page="faq" data-en="FAQ" data-ru="FAQ">FAQ</a>
+            </nav>
+
+            <div class="header-actions">
+                <div class="lang-switch">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ru">RU</button>
+                </div>
+                <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Start GuardPayBot" data-en="Start" data-ru="Начать">Start</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle mobile menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HOME -->
+        <div class="page active" id="page-home">
+            <section class="hero reveal">
+                <div class="container hero-content">
+                    <div class="hero-badge"><span data-en="Protecting 2,000+ groups" data-ru="Защита 2,000+ групп">Protecting 2,000+ groups</span></div>
+                    <h1 class="hero-title" data-en="Protect your group from spam <span class='text-gradient'>in 3 minutes</span>" data-ru="Защитите группу от спама <span class='text-gradient'>за 3 минуты</span>">Protect your group from spam <span class="text-gradient">in 3 minutes</span></h1>
+                    <p class="hero-desc" data-en="GuardBot - automatic Telegram group protection 24/7. Blocks spam, flood, raids and bots without your involvement." data-ru="GuardBot - автоматическая защита Telegram групп 24/7. Блокирует спам, флуд, рейды и ботов без вашего участия.">GuardBot - automatic Telegram group protection 24/7. Blocks spam, flood, raids and bots without your involvement.</p>
+                    <div class="hero-actions">
+                        <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Start GuardPayBot" data-en="Start for free" data-ru="Начать бесплатно">Start for free</a>
+                        <a href="#features" class="btn btn-secondary" data-page="features" data-en="Learn more" data-ru="Узнать больше">Learn more</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value" data-en="2,000+" data-ru="2,000+">2,000+</div>
+                            <div class="hero-stat-label" data-en="Groups protected" data-ru="Групп защищено">Groups protected</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value" data-en="1.5M+" data-ru="1.5M+">1.5M+</div>
+                            <div class="hero-stat-label" data-en="Spam blocked" data-ru="Спама блокировано">Spam blocked</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value" data-en="150K+" data-ru="150K+">150K+</div>
+                            <div class="hero-stat-label" data-en="Active users" data-ru="Активных юзеров">Active users</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 class="section-title" data-en="Why GuardBot?" data-ru="Почему GuardBot?">Why GuardBot?</h2>
+                        <p class="section-subtitle" data-en="Everything you need to protect your group in one bot" data-ru="Всё что нужно для защиты вашей группы в одном боте">Everything you need to protect your group in one bot</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 0ms;">
+                            <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg></div>
+                            <h3 class="feature-title" data-en="Anti-spam" data-ru="Антиспам">Anti-spam</h3>
+                            <p class="feature-desc" data-en="Blocks flood, duplicates, caps and emoji. Features Audit Mode for safe testing." data-ru="Блокирует флуд, дубликаты, капс и эмодзи. Доступен Режим Аудита для тестов.">Blocks flood, duplicates, caps and emoji. Features Audit Mode for safe testing.</p>
+                        </div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 100ms;">
+                            <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                            <h3 class="feature-title" data-en="Anti-raid" data-ru="Анти-рейд">Anti-raid</h3>
+                            <p class="feature-desc" data-en="Automatically detects mass joins and activates lockdown. Logs all actions." data-ru="Автоматически обнаруживает атаки и включает lockdown. Логирует все действия.">Automatically detects mass joins and activates lockdown. Logs all actions.</p>
+                        </div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 200ms;">
+                            <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+                            <h3 class="feature-title" data-en="Smart Captcha" data-ru="Умная Капча">Smart Captcha</h3>
+                            <p class="feature-desc" data-en="Verify users with Button, Math, distorted Image, or Custom questions." data-ru="Проверка новых участников: Кнопка, Математика, Картинка или Ваши вопросы.">Verify users with Button, Math, distorted Image, or Custom questions.</p>
+                        </div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 300ms;">
+                            <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div>
+                            <h3 class="feature-title" data-en="Link Filter" data-ru="Фильтр ссылок">Link Filter</h3>
+                            <p class="feature-desc" data-en="Blocks unwanted links. Supports custom domain whitelist and admin rules." data-ru="Блокирует рекламу. Поддерживает белые списки доменов и права админов.">Blocks unwanted links. Supports custom domain whitelist and admin rules.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 class="section-title" data-en="Built for Enterprise" data-ru="Создано для Энтерпрайза">Built for Enterprise</h2>
+                        <p class="section-subtitle" data-en="Security, transparency, and reliability." data-ru="Безопасность, прозрачность и надежность.">Security, transparency, and reliability.</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 0ms;">
+                            <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>
+                            <h3 class="feature-title" data-en="Security & Privacy" data-ru="Безопасность и Приватность">Security & Privacy</h3>
+                            <p class="feature-desc" data-en="GuardBot operates directly via the Telegram API. We do not store message history on our servers. The system processes only metadata required for spam detection." data-ru="GuardBot работает напрямую через Telegram API. Мы не храним историю сообщений на наших серверах. Система обрабатывает только метаданные, необходимые для выявления спама.">GuardBot operates directly via the Telegram API. We do not store message history on our servers. The system processes only metadata required for spam detection.</p>
+                        </div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 100ms;">
+                            <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg></div>
+                            <h3 class="feature-title" data-en="Technical Excellence" data-ru="Техническое Превосходство">Technical Excellence</h3>
+                            <p class="feature-desc" data-en="Our service runs on high-performance Debian-based cloud infrastructure, ensuring a 24/7 uptime guarantee and zero-delay processing." data-ru="Наш сервис работает на высокопроизводительной облачной инфраструктуре на базе Debian, обеспечивая гарантию аптайма 24/7 и обработку сообщений без задержек.">Our service runs on high-performance Debian-based cloud infrastructure, ensuring a 24/7 uptime guarantee and zero-delay processing.</p>
+                        </div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 200ms;">
+                            <div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                            <h3 class="feature-title" data-en="Project Transparency" data-ru="Прозрачность Проекта">Project Transparency</h3>
+                            <p class="feature-desc" data-en="Founded by Narek, Lead Python Developer. Our primary focus is building the fastest, most reliable, and highly secure anti-spam tool." data-ru="Основан Нареком, ведущим Python-разработчиком. Наша главная цель - создание самого быстрого, надежного и безопасного антиспам-инструмента.">Founded by Narek, Lead Python Developer. Our primary focus is building the fastest, most reliable, and highly secure anti-spam tool.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="cta-section interactive-card reveal">
+                        <h2 class="cta-title" data-en="Ready to protect your group?" data-ru="Готовы защитить группу?">Ready to protect your group?</h2>
+                        <p class="cta-desc" data-en="Setup takes just 3 minutes." data-ru="Настройка за 3 минуты.">Setup takes just 3 minutes.</p>
+                        <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-en="Start your 7-day free trial" data-ru="Начать 7 дней бесплатно">Start your 7-day free trial</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="page" id="page-features">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 class="section-title" data-en="All Features" data-ru="Все функции">All Features</h2>
+                        <p class="section-subtitle" data-en="Complete toolset for group protection" data-ru="Полный набор инструментов для защиты группы">Complete toolset for group protection</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 0ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg></div><h3 class="feature-title" data-en="Anti-spam" data-ru="Антиспам">Anti-spam</h3><p class="feature-desc" data-en="Flood, duplicates, caps, emoji. Configurable levels: low, medium, high." data-ru="Флуд, дубликаты, капс, эмодзи. Настраиваемые уровни: low, medium, high.">Flood, duplicates, caps, emoji. Configurable levels: low, medium, high.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 50ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div><h3 class="feature-title" data-en="Link Filter & Whitelist" data-ru="Фильтр ссылок и Whitelist">Link Filter & Whitelist</h3><p class="feature-desc" data-en="Block external/invite links. Set allowed domains and admin exceptions." data-ru="Блокировка сторонних ссылок. Добавление разрешенных доменов и исключений.">Block external/invite links. Set allowed domains and admin exceptions.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 100ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><h3 class="feature-title" data-en="Anti-raid" data-ru="Анти-рейд">Anti-raid</h3><p class="feature-desc" data-en="Automatic lockdown during mass joins." data-ru="Автоматический lockdown при массовых присоединениях.">Automatic lockdown during mass joins.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 150ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div><h3 class="feature-title" data-en="Smart Captcha" data-ru="Умная Капча">Smart Captcha</h3><p class="feature-desc" data-en="4 verification types: Button, Math, Image, or Custom admin questions." data-ru="4 типа проверок: Кнопка, Математика, Картинка или Кастомные вопросы админа.">4 verification types: Button, Math, Image, or Custom admin questions.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 0ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></div><h3 class="feature-title" data-en="Warnings" data-ru="Предупреждения">Warnings</h3><p class="feature-desc" data-en="Progressive warning system. Mute escalation." data-ru="Прогрессивная система предупреждений. Эскалация мутов.">Progressive warning system. Mute escalation.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 50ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div><h3 class="feature-title" data-en="EN + RU" data-ru="RU + EN">EN + RU</h3><p class="feature-desc" data-en="Full English and Russian language support." data-ru="Полная поддержка русского и английского языка.">Full English and Russian language support.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 100ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg></div><h3 class="feature-title" data-en="Action Logs" data-ru="Логирование">Action Logs</h3><p class="feature-desc" data-en="Detailed moderation logs. Export for 24h or 7d." data-ru="Детальные логи модерации. Экспорт за 24ч или 7д.">Detailed moderation logs. Export for 24h or 7d.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 150ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div><h3 class="feature-title" data-en="Audit Mode" data-ru="Режим аудита">Audit Mode</h3><p class="feature-desc" data-en="Safely test policies. Bot logs actions without punishing users." data-ru="Безопасные тесты. Бот логирует нарушения без наказаний.">Safely test policies. Bot logs actions without punishing users.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 0ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div><h3 class="feature-title" data-en="Greetings" data-ru="Приветствия">Greetings</h3><p class="feature-desc" data-en="Custom welcome messages with media and inline buttons." data-ru="Кастомные приветствия с медиа и инлайн-кнопками.">Custom welcome messages with media and inline buttons.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 50ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div><h3 class="feature-title" data-en="Notes" data-ru="Заметки">Notes</h3><p class="feature-desc" data-en="Save FAQ and rules by #tags for quick responses." data-ru="Сохраняйте FAQ и правила по #тегам для быстрых ответов.">Save FAQ and rules by #tags for quick responses.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 100ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg></div><h3 class="feature-title" data-en="Backups" data-ru="Бэкапы">Backups</h3><p class="feature-desc" data-en="Export and import all group settings instantly." data-ru="Мгновенный экспорт и импорт всех настроек группы.">Export and import all group settings instantly.</p></div>
+                        <div class="feature-card interactive-card reveal" style="transition-delay: 150ms;"><div class="feature-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div><h3 class="feature-title" data-en="Scheduler" data-ru="Планировщик">Scheduler</h3><p class="feature-desc" data-en="Scheduled messages and automated periodic tasks." data-ru="Отложенные сообщения и автоматические периодические задачи.">Scheduled messages and automated periodic tasks.</p></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PRICING -->
+        <div class="page" id="page-pricing">
+            <section class="section">
+                <div class="container container-wide">
+                    <div class="section-header reveal">
+                        <h2 class="section-title" data-en="Beta Pricing Model" data-ru="Модель ценообразования">Beta Pricing Model</h2>
+                        <p class="section-subtitle" data-en="During the current beta phase, 100% of the functionality is free to use." data-ru="На этапе бета-тестирования 100% функционала доступно абсолютно бесплатно.">During the current beta phase, 100% of the functionality is free to use.</p>
+                        <p style="color: var(--cyan); margin-top: 15px; font-size: 0.9rem; opacity: 0.8;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg><span data-en="Scroll to see more plans" data-ru="Листайте вправо, чтобы увидеть все тарифы">Scroll to see more plans</span></p>
+                    </div>
+                    <div class="pricing-grid">
+                        <div class="pricing-card interactive-card reveal" style="transition-delay: 0ms;">
+                            <h3 class="pricing-name">Basic</h3>
+                            <div class="pricing-price">$3</div>
+                            <div class="pricing-period" data-en="per month" data-ru="в месяц">per month</div>
+                            <ul class="pricing-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="1 group" data-ru="1 группа">1 group</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Basic protection" data-ru="Базовая защита">Basic protection</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Standard support" data-ru="Стандартная поддержка">Standard support</span></li>
+                            </ul>
+                            <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-en="Choose" data-ru="Выбрать">Choose</a>
+                        </div>
+                        <div class="pricing-card interactive-card popular reveal" style="transition-delay: 100ms;">
+                            <div class="pricing-badge" data-en="Most Popular" data-ru="Популярный">Most Popular</div>
+                            <h3 class="pricing-name">Pro</h3>
+                            <div class="pricing-price">$8</div>
+                            <div class="pricing-period" data-en="per month" data-ru="в месяц">per month</div>
+                            <ul class="pricing-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="3 groups" data-ru="3 группы">3 groups</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="All protection features" data-ru="Все функции защиты">All protection features</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Priority support" data-ru="Приоритетная поддержка">Priority support</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Advanced stats" data-ru="Расширенная статистика">Advanced stats</span></li>
+                            </ul>
+                            <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-en="Choose" data-ru="Выбрать">Choose</a>
+                        </div>
+                        <div class="pricing-card interactive-card reveal" style="transition-delay: 200ms;">
+                            <h3 class="pricing-name">Business</h3>
+                            <div class="pricing-price">$20</div>
+                            <div class="pricing-period" data-en="per month" data-ru="в месяц">per month</div>
+                            <ul class="pricing-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="10 groups" data-ru="10 групп">10 groups</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="All protection features" data-ru="Все функции защиты">All protection features</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="VIP support" data-ru="VIP поддержка">VIP support</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Customization" data-ru="Кастомизация">Customization</span></li>
+                            </ul>
+                            <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-en="Choose" data-ru="Выбрать">Choose</a>
+                        </div>
+                        <div class="pricing-card interactive-card reveal" style="transition-delay: 300ms;">
+                            <h3 class="pricing-name">Lifetime</h3>
+                            <div class="pricing-price">$189</div>
+                            <div class="pricing-period" data-en="forever" data-ru="навсегда">forever</div>
+                            <ul class="pricing-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Unlimited groups" data-ru="Безлимит групп">Unlimited groups</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="All protection features" data-ru="Все функции защиты">All protection features</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Lifetime license" data-ru="Пожизненная лицензия">Lifetime license</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="First-priority support" data-ru="Первоочередная поддержка">First-priority support</span></li>
+                            </ul>
+                            <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-en="Choose" data-ru="Выбрать">Choose</a>
+                        </div>
+                        <div class="pricing-card interactive-card beta-card reveal" style="transition-delay: 400ms; background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, var(--surface) 100%); border-color: rgba(255, 255, 255, 0.08);">
+                            <div class="pricing-badge" style="background: var(--cyan); color: #000; box-shadow: 0 4px 15px var(--cyan-glow);" data-en="Special" data-ru="Специально">Special</div>
+                            <h3 class="pricing-name" style="color: #fff;">Beta Access</h3>
+                            <div class="pricing-price">$0</div>
+                            <div class="pricing-period" data-en="100% Free" data-ru="100% Бесплатно">100% Free</div>
+                            <ul class="pricing-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="All Premium Features" data-ru="Все Premium функции">All Premium Features</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="By Application Only" data-ru="Только по заявке">By Application Only</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Zero cost forever*" data-ru="Навсегда бесплатно*">Zero cost forever*</span></li>
+                            </ul>
+                            <button class="btn btn-primary" onclick="openBetaModal()" data-en="Learn More" data-ru="Подробнее">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- COMPARE -->
+        <div class="page" id="page-compare">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 class="section-title" data-en="Comparison" data-ru="Сравнение с конкурентами">Comparison</h2>
+                        <p class="section-subtitle" data-en="Why GuardBot is the best choice" data-ru="Почему GuardBot - лучший выбор">Why GuardBot is the best choice</p>
+                    </div>
+                    <div class="comparison-wrapper reveal">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th class="highlight"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> GuardBot</th>
+                                    <th>Combot</th>
+                                    <th>Rose</th>
+                                    <th>Shieldy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-en="Anti-spam" data-ru="Антиспам">Anti-spam</td>
+                                    <td class="highlight"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Advanced" data-ru="Расширенный">Advanced</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Basic" data-ru="Базовый">Basic</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Basic" data-ru="Базовый">Basic</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Mute escalation" data-ru="Эскалация мутов">Mute escalation</td>
+                                    <td class="highlight"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="5m -> 24h" data-ru="5 мин -> 24ч">5m -> 24h</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a0a0b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg> <span data-en="Fixed" data-ru="Фикс.">Fixed</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Languages" data-ru="Языки">Languages</td>
+                                    <td class="highlight"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> RU + EN</td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> EN</td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> EN</td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> EN</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Anti-raid" data-ru="Анти-рейд">Anti-raid</td>
+                                    <td class="highlight"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Auto" data-ru="Авто">Auto</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a0a0b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg> <span data-en="Manual" data-ru="Ручной">Manual</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Audit mode" data-ru="Режим аудита">Audit mode</td>
+                                    <td class="highlight"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Log export" data-ru="Экспорт логов">Log export</td>
+                                    <td class="highlight"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="24h/7d" data-ru="24h/7d">24h/7d</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a0a0b0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg> <span data-en="Paid" data-ru="Платно">Paid</span></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                    <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Price" data-ru="Цена">Price</td>
+                                    <td class="highlight"><strong data-en="Free (Beta) / $3/mo" data-ru="Бесплатно (Бета) / $3/мес">Free (Beta) / $3/mo</strong></td>
+                                    <td>$4.99/mo</td>
+                                    <td data-en="Free*" data-ru="Бесплатно*">Free*</td>
+                                    <td data-en="Free" data-ru="Бесплатно">Free</td>
+                                </tr>
+                                <tr>
+                                    <td data-en="Support" data-ru="Поддержка">Support</td>
+                                    <td class="highlight"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="24/7 EN/RU" data-ru="24/7 RU/EN">24/7 EN/RU</span></td>
+                                    <td>EN</td>
+                                    <td data-en="Forum" data-ru="Форум">Forum</td>
+                                    <td data-en="GitHub" data-ru="GitHub">GitHub</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="text-align: center; margin-top: 24px; color: var(--text-muted); font-size: 0.95rem;" data-en="* Rose - basic features free, advanced paid" data-ru="* Rose - базовые функции бесплатно, расширенные платно">
+                        * Rose - basic features free, advanced paid
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- DOCS -->
+        <div class="page" id="page-docs">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 class="section-title" data-en="Documentation" data-ru="Документация">Documentation</h2>
+                        <p class="section-subtitle" data-en="Full command list" data-ru="Полный список команд бота">Full command list</p>
+                    </div>
+                    <div class="commands-grid">
+                        <div class="command-group reveal"><h3 class="command-group-title" data-en="GuardBot - Help" data-ru="GuardBot - Справка">GuardBot - Help</h3><div class="command-sub-title" data-en="Main commands" data-ru="Основные команды">Main commands</div><ul class="command-list"><li><code>/on</code><span class="cmd-desc" data-en="Enable protection" data-ru="Включить защиту">Enable protection</span></li><li><code>/off</code><span class="cmd-desc" data-en="Disable protection" data-ru="Выключить защиту">Disable protection</span></li><li><code>/status</code><span class="cmd-desc" data-en="Current status" data-ru="Текущий статус">Current status</span></li><li><code>/settings</code><span class="cmd-desc" data-en="Detailed settings" data-ru="Подробные настройки">Detailed settings</span></li><li><code>/help</code><span class="cmd-desc" data-en="This help" data-ru="Эта справка">This help</span></li></ul><div class="command-sub-title" data-en="Modes" data-ru="Режимы работы">Modes</div><ul class="command-list"><li><code>/mode enforce</code><span class="cmd-desc" data-en="Enable blocking" data-ru="Включить блокировку">Enable blocking</span></li><li><code>/mode audit</code><span class="cmd-desc" data-en="Logging only" data-ru="Только логирование">Logging only</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Verification" data-ru="Верификация">Verification</h3><ul class="command-list"><li><code>/verify on/off</code><span class="cmd-desc" data-en="Toggle verification" data-ru="Вкл/выкл верификацию">Toggle verification</span></li><li><code>/captcha</code><span class="cmd-desc" data-en="Captcha settings" data-ru="Настройки капчи">Captcha settings</span></li><li><code>/addquestion</code><span class="cmd-desc" data-en="Add a question" data-ru="Добавить вопрос">Add a question</span></li><li><code>/questions</code><span class="cmd-desc" data-en="Question list" data-ru="Список вопросов">Question list</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Greetings" data-ru="Приветствия">Greetings</h3><ul class="command-list"><li><code>/welcome on/off</code><span class="cmd-desc" data-en="Toggle welcome" data-ru="Вкл/выкл приветствие">Toggle welcome</span></li><li><code>/setwelcome</code><span class="cmd-desc" data-en="Set text" data-ru="Установить текст">Set text</span></li><li><code>/welcometest</code><span class="cmd-desc" data-en="Preview" data-ru="Предпросмотр">Preview</span></li><li><code>/goodbye on/off</code><span class="cmd-desc" data-en="Toggle goodbye" data-ru="Вкл/выкл прощание">Toggle goodbye</span></li><li><code>/setgoodbye</code><span class="cmd-desc" data-en="Set text" data-ru="Установить текст">Set text</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Blacklist" data-ru="Чёрный список">Blacklist</h3><ul class="command-list"><li><code>/blacklist</code><span class="cmd-desc" data-en="Management menu" data-ru="Меню управления">Management menu</span></li><li><code>/blacklist add word</code><span class="cmd-desc" data-en="Add" data-ru="Добавить">Add</span></li><li><code>/blacklist remove word</code><span class="cmd-desc" data-en="Remove" data-ru="Удалить">Remove</span></li><li><code>/blacklist list</code><span class="cmd-desc" data-en="Show all" data-ru="Показать все">Show all</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Media Restrictions" data-ru="Медиа-ограничения">Media Restrictions</h3><ul class="command-list"><li><code>/restrict type</code><span class="cmd-desc" data-en="Forbid media" data-ru="Запретить медиа">Forbid media</span></li><li><code>/unrestrict type</code><span class="cmd-desc" data-en="Allow media" data-ru="Разрешить медиа">Allow media</span></li><li><code>/restrictions</code><span class="cmd-desc" data-en="Settings menu" data-ru="Меню настроек">Settings menu</span></li><li><code>/mediasize MB</code><span class="cmd-desc" data-en="Max file size" data-ru="Макс. размер файла">Max file size</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Link Protection" data-ru="Защита от ссылок">Link Protection</h3><ul class="command-list"><li><code>/links on/off</code><span class="cmd-desc" data-en="Toggle protection" data-ru="Вкл/выкл защиту">Toggle protection</span></li><li><code>/whitelist add domain</code><span class="cmd-desc" data-en="Allow domain" data-ru="Разрешить домен">Allow domain</span></li><li><code>/whitelist list</code><span class="cmd-desc" data-en="Allowed list" data-ru="Список разрешённых">Allowed list</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Script Protection" data-ru="Защита от скриптов">Script Protection</h3><ul class="command-list"><li><code>/antiscript on/off</code><span class="cmd-desc" data-en="Toggle" data-ru="Вкл/выкл">Toggle</span></li><li><code>/antiscript block arabic</code><span class="cmd-desc" data-en="Block specific" data-ru="Заблокировать">Block specific</span></li><li><code>/antiscript list</code><span class="cmd-desc" data-en="Show status" data-ru="Показать статус">Show status</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Slow Mode" data-ru="Медленный режим">Slow Mode</h3><ul class="command-list"><li><code>/slowmode on/off</code><span class="cmd-desc" data-en="Toggle" data-ru="Вкл/выкл">Toggle</span></li><li><code>/slowmode 30</code><span class="cmd-desc" data-en="Interval in seconds" data-ru="Интервал в секундах">Interval in seconds</span></li><li><code>/slowmode reset @user</code><span class="cmd-desc" data-en="Reset timer" data-ru="Сбросить таймер">Reset timer</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Forward Protection" data-ru="Защита от пересылок">Forward Protection</h3><ul class="command-list"><li><code>/antiforward on/off</code><span class="cmd-desc" data-en="Toggle" data-ru="Вкл/выкл">Toggle</span></li><li><code>/antiforward allow @channel</code><span class="cmd-desc" data-en="Allow" data-ru="Разрешить">Allow</span></li><li><code>/antiforward list</code><span class="cmd-desc" data-en="Show status" data-ru="Показать статус">Show status</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Mention Limit" data-ru="Лимит упоминаний">Mention Limit</h3><ul class="command-list"><li><code>/mentionlimit on/off</code><span class="cmd-desc" data-en="Toggle" data-ru="Вкл/выкл">Toggle</span></li><li><code>/mentionlimit 5</code><span class="cmd-desc" data-en="Set limit" data-ru="Установить лимит">Set limit</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Reports" data-ru="Жалобы">Reports</h3><ul class="command-list"><li><code>/report reason</code><span class="cmd-desc" data-en="Report (by reply)" data-ru="Пожаловаться (ответом)">Report (by reply)</span></li><li><code>/reports</code><span class="cmd-desc" data-en="Report list" data-ru="Список жалоб">Report list</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Notes" data-ru="Заметки">Notes</h3><ul class="command-list"><li><code>/save trigger text</code><span class="cmd-desc" data-en="Save note" data-ru="Сохранить заметку">Save note</span></li><li><code>/notes</code><span class="cmd-desc" data-en="Note list" data-ru="Список заметок">Note list</span></li><li><code>/delnote trigger</code><span class="cmd-desc" data-en="Delete note" data-ru="Удалить заметку">Delete note</span></li><li><code>#trigger</code><span class="cmd-desc" data-en="Get note" data-ru="Получить заметку">Get note</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Message Cleanup" data-ru="Очистка сообщений">Message Cleanup</h3><ul class="command-list"><li><code>/cleanup on/off</code><span class="cmd-desc" data-en="Toggle" data-ru="Вкл/выкл">Toggle</span></li><li><code>/cleanup joins/leaves/pins</code><span class="cmd-desc" data-en="Configure types" data-ru="Настроить типы">Configure types</span></li><li><code>/cleanup status</code><span class="cmd-desc" data-en="Current settings" data-ru="Текущие настройки">Current settings</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Statistics" data-ru="Статистика">Statistics</h3><ul class="command-list"><li><code>/stats</code><span class="cmd-desc" data-en="General stats" data-ru="Общая статистика">General stats</span></li><li><code>/stats today/week/month</code><span class="cmd-desc" data-en="For period" data-ru="За период">For period</span></li><li><code>/stats top</code><span class="cmd-desc" data-en="Top active" data-ru="Топ активных">Top active</span></li><li><code>/mystats</code><span class="cmd-desc" data-en="My activity" data-ru="Моя активность">My activity</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Scheduler" data-ru="Планировщик">Scheduler</h3><ul class="command-list"><li><code>/schedule list</code><span class="cmd-desc" data-en="Task list" data-ru="Список задач">Task list</span></li><li><code>/schedule add DD.MM.YYYY HH:MM text</code><span class="cmd-desc" data-en="One-time" data-ru="Одноразовая">One-time</span></li><li><code>/schedule daily HH:MM text</code><span class="cmd-desc" data-en="Daily" data-ru="Ежедневная">Daily</span></li><li><code>/schedule remove ID</code><span class="cmd-desc" data-en="Delete task" data-ru="Удалить задачу">Delete task</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Backups" data-ru="Бэкапы">Backups</h3><ul class="command-list"><li><code>/backup</code><span class="cmd-desc" data-en="Create backup" data-ru="Создать бэкап">Create backup</span></li><li><code>/backup download</code><span class="cmd-desc" data-en="Download file" data-ru="Скачать файл">Download file</span></li><li><code>/backups</code><span class="cmd-desc" data-en="Backup list" data-ru="Список бэкапов">Backup list</span></li><li><code>/restore</code><span class="cmd-desc" data-en="Restore (reply to file)" data-ru="Восстановить (ответом на файл)">Restore (reply to file)</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Audit Log" data-ru="Лог действий">Audit Log</h3><ul class="command-list"><li><code>/auditlog</code><span class="cmd-desc" data-en="Action summary" data-ru="Сводка действий">Action summary</span></li><li><code>/auditlog list</code><span class="cmd-desc" data-en="Recent actions" data-ru="Последние действия">Recent actions</span></li><li><code>/auditlog today</code><span class="cmd-desc" data-en="For today" data-ru="За сегодня">For today</span></li><li><code>/auditlog admin ID</code><span class="cmd-desc" data-en="By admin" data-ru="По администратору">By admin</span></li></ul></div><div class="command-group reveal"><h3 class="command-group-title" data-en="Export" data-ru="Экспорт">Export</h3><ul class="command-list"><li><code>/logs</code><span class="cmd-desc" data-en="Show logs" data-ru="Показать логи">Show logs</span></li><li><code>/exportlogs 24h|7d</code><span class="cmd-desc" data-en="Export logs" data-ru="Экспорт логов">Export logs</span></li></ul></div>
+                    </div>
+                    <div style="text-align: center; margin-top: 60px;" class="reveal">
+                        <a href="https://docs.guardbot.tech" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 16px 40px; font-size: 1.05rem; gap: 10px;" data-en="View Full Documentation" data-ru="Полная документация">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            View Full Documentation
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- FAQ -->
+        <div class="page" id="page-faq">
+            <section class="section">
+                <div class="container">
+                    <div class="section-header reveal">
+                        <h2 class="section-title" data-en="Frequently Asked Questions" data-ru="Частые вопросы">Frequently Asked Questions</h2>
+                    </div>
+                    <div class="faq-list">
+                        <div class="faq-item reveal" style="transition-delay: 0ms;">
+                            <button class="faq-question">
+                                <span data-en="How fast is the setup?" data-ru="Как быстро настроить GuardBot?">How fast is the setup?</span>
+                                <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                            </button>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content" data-en="Setup takes 2-3 minutes. Pay for subscription, get a code, add bot to the group and use /activate." data-ru="Настройка занимает 2-3 минуты. Оплатите подписку, получите код, добавьте бота в группу и используйте /activate.">Setup takes 2-3 minutes. Pay for subscription, get a code, add bot to the group and use /activate.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item reveal" style="transition-delay: 50ms;">
+                            <button class="faq-question">
+                                <span data-en="Can I test it for free? (7-day free trial)" data-ru="Можно протестировать бесплатно? (7-day free trial)">Can I test it for free? (7-day free trial)</span>
+                                <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                            </button>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content" data-en="Yes! Add the bot to your group and enjoy 7 days of free access!." data-ru="Да! Добавьте бота в свою группу и получите 7 дней бесплатного доступа!">Yes! Start your 7-day free trial by contacting @GuardBotSupport.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item reveal" style="transition-delay: 100ms;">
+                            <button class="faq-question">
+                                <span data-en="What are the payment methods?" data-ru="Какие способы оплаты?">What are the payment methods?</span>
+                                <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                            </button>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content" data-en="Crypto (USDT TRC20, TON) with 10% discount and Telegram Stars. Instant payment." data-ru="Криптовалюта (USDT TRC20, TON) со скидкой 10% и Telegram Stars. Оплата моментальная.">Crypto (USDT TRC20, TON) with 10% discount and Telegram Stars. Instant payment.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item reveal" style="transition-delay: 150ms;">
+                            <button class="faq-question">
+                                <span data-en="What if the bot deletes a needed message?" data-ru="Что если бот удалит нужное сообщение?">What if the bot deletes a needed message?</span>
+                                <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                            </button>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content" data-en="Use audit mode to test rules. Set up whitelists for admins and domains. All actions are logged." data-ru="Используйте режим аудита для тестирования правил. Настройте белые списки для админов и доменов. Все действия логируются.">Use audit mode to test rules. Set up whitelists for admins and domains. All actions are logged.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item reveal" style="transition-delay: 200ms;">
+                            <button class="faq-question">
+                                <span data-en="Does it support English?" data-ru="Работает на английском?">Does it support English?</span>
+                                <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                            </button>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content" data-en="Yes, full English support. Support team answers in English 24/7." data-ru="Да, полная поддержка английского языка. Поддержка отвечает на английском 24/7.">Yes, full English support. Support team answers in English 24/7.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item reveal" style="transition-delay: 250ms;">
+                            <button class="faq-question">
+                                <span data-en="Is there a referral program?" data-ru="Есть реферальная программа?">Is there a referral program?</span>
+                                <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                            </button>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content" data-en="Yes! 20% from each payment of invited users. Minimum payout - $20. Command /referral in @ForGuardPayBot." data-ru="Да! 20% от каждой оплаты приглашённых. Минимум для вывода - $20. Команда /referral в @ForGuardPayBot.">Yes! 20% from each payment of invited users. Minimum payout - $20. Command /referral in @ForGuardPayBot.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item reveal" style="transition-delay: 300ms;">
+                            <button class="faq-question">
+                                <span data-en="How does the smart captcha work?" data-ru="Как работает умная капча?">How does the smart captcha work?</span>
+                                <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                            </button>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content" data-en="We offer 4 captcha types to protect against advanced Telegram bots: a simple Button, Math problems, distorted Image captchas, and Custom admin questions. You can choose the difficulty level to perfectly secure your group chat." data-ru="Мы предлагаем 4 типа капчи для защиты от продвинутых Telegram ботов: простая Кнопка, Математические примеры, Картинка с искаженным текстом и Кастомные вопросы от админов. Вы можете настроить уровень сложности для идеальной безопасности чата.">We offer 4 captcha types to protect against advanced Telegram bots: a simple Button, Math problems, distorted Image captchas, and Custom admin questions. You can choose the difficulty level to perfectly secure your group chat.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-item reveal" style="transition-delay: 350ms;">
+                            <button class="faq-question">
+                                <span data-en="How to test the bot without blocking members?" data-ru="Как протестировать бота без блокировок?">How to test the bot without blocking members?</span>
+                                <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+                            </button>
+                            <div class="faq-answer-wrapper">
+                                <div class="faq-answer-inner">
+                                    <div class="faq-answer-content" data-en="GuardBot features a unique Audit Mode. When enabled, the bot will log all spam and link violations in the moderation history without deleting messages or muting users. You can export these logs to safely test your anti-spam filters." data-ru="В GuardBot есть уникальный Режим Аудита. Если его включить, бот будет логировать все нарушения спама и ссылок в историю модерации, не удаляя сообщения и не наказывая пользователей. Вы можете экспортировать логи, чтобы безопасно настроить фильтры.">GuardBot features a unique Audit Mode. When enabled, the bot will log all spam and link violations in the moderation history without deleting messages or muting users. You can export these logs to safely test your anti-spam filters.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://t.me/ForGuardBot" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> @ForGuardBot</a>
+                <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> @ForGuardPayBot</a>
+                <a href="https://t.me/GuardBotSupport" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> Support</a>
+            </div>
+            <p class="footer-copy">© 2026 GuardBot. All rights reserved. &nbsp;|&nbsp; <a href="#" onclick="openLegalModal(); return false;" style="color: var(--text-muted); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.1); transition: var(--transition);" onmouseover="this.style.color='var(--text)'; this.style.borderBottomColor='rgba(255,255,255,0.3)'" onmouseout="this.style.color='var(--text-muted)'; this.style.borderBottomColor='rgba(255,255,255,0.1)'">Terms of Service &amp; Privacy Policy</a></p>
+            <div class="footer-seo" style="margin-top: 30px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.03); font-size: 0.8rem; color: var(--text-muted); max-width: 800px; margin-inline: auto; line-height: 1.8;">
+                <span data-en="GuardBot provides advanced Telegram moderation and is the ultimate anti-spam bot. We specialize in automatic group protection, keeping your chats safe from flood, raids, and malicious actors." data-ru="GuardBot обеспечивает продвинутую модерацию и является лучшим антиспам ботом. Автоматическая защита телеграм групп от спама, флуда и рейдов. Надежная защита чата 24/7.">GuardBot provides advanced Telegram moderation and is the ultimate anti-spam bot. We specialize in automatic group protection, keeping your chats safe from flood, raids, and malicious actors.</span>
+                <br><br>
+                <span style="opacity: 0.5;">Tags: Telegram moderation, anti-spam bot, защита телеграм групп, модерация телеграм, защита чата, Telegram captcha, block bots.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Beta Modal -->
+    <div class="modal-overlay" id="betaModal">
+        <div class="modal-content interactive-card">
+            <button class="modal-close" onclick="closeBetaModal()" aria-label="Close modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            <h2 class="modal-title" data-en="Join the GuardBot Beta" data-ru="Присоединиться к Beta-тесту">Join the GuardBot Beta</h2>
+            <div class="modal-body">
+                <p data-en="GuardBot is currently in closed beta testing. You can get full access to all premium features absolutely free by participating in our beta program." data-ru="GuardBot в данный момент находится в стадии закрытого бета-тестирования. Вы можете получить полный доступ ко всем премиум-функциям абсолютно бесплатно, приняв участие в программе.">GuardBot is currently in closed beta testing. You can get full access to all premium features absolutely free by participating in our beta program.</p>
+                <div class="beta-steps">
+                    <div class="beta-step">
+                        <div class="step-num">1</div>
+                        <div class="step-text" data-en="Contact our support bot <strong>@GuardBotSupport</strong>" data-ru="Напишите в нашего бота поддержки <strong>@GuardBotSupport</strong>">Contact our support bot <strong>@GuardBotSupport</strong></div>
+                    </div>
+                    <div class="beta-step">
+                        <div class="step-num">2</div>
+                        <div class="step-text" data-en="Request participation in the Beta Testing program" data-ru="Попросите участие в программе Beta-тестирования">Request participation in the Beta Testing program</div>
+                    </div>
+                    <div class="beta-step">
+                        <div class="step-num">3</div>
+                        <div class="step-text" data-en="Wait for approval from our team. Once approved, you'll receive free access." data-ru="Дождитесь одобрения от нашей команды. После одобрения вы получите бесплатный доступ.">Wait for approval from our team. Once approved, you'll receive free access.</div>
+                    </div>
+                </div>
+                <a href="https://t.me/GuardBotSupport" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; margin-top: 20px;" data-en="Contact Support" data-ru="Написать в Поддержку">Contact Support</a>
+            </div>
+        </div>
+    </div>
+    <!-- Legal Modal -->
+    <div class="modal-overlay" id="legalModal">
+        <div class="modal-content" style="max-width: 720px; max-height: 85vh; overflow-y: auto;">
+            <button class="modal-close" onclick="closeLegalModal()" aria-label="Close modal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            <h2 class="modal-title" style="font-size: 1.5rem;">Terms of Service &amp; Privacy Policy</h2>
+            <div class="modal-body" style="font-size: 0.9rem; line-height: 1.8; color: var(--text-secondary);">
+                <p style="color: var(--text-muted); font-size: 0.8rem; margin-bottom: 20px;">Last updated: May 19, 2026 &mdash; Effective immediately upon use of the Service.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">1. Acceptance of Terms</h3>
+                <p>By accessing, installing, activating, or using GuardBot (the &ldquo;Service&rdquo;, &ldquo;Bot&rdquo;), you (&ldquo;User&rdquo;, &ldquo;You&rdquo;) unconditionally agree to be bound by these Terms of Service and Privacy Policy (collectively, the &ldquo;Agreement&rdquo;). If you do not agree to all terms herein, you must immediately cease all use of the Service. Your continued use of the Service constitutes irrevocable acceptance of this Agreement and any future amendments.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">2. Service Description</h3>
+                <p>GuardBot is an automated Telegram moderation bot that provides anti-spam, anti-raid, captcha verification, link filtering, and related group management tools. The Service operates exclusively via the Telegram Bot API and is provided on a subscription basis.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">3. Disclaimer of Warranties (&ldquo;AS IS&rdquo;)</h3>
+                <p><strong style="color: var(--text);">THE SERVICE IS PROVIDED STRICTLY &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</strong></p>
+                <p>The Developer makes no warranty, representation, or guarantee that: (a) the Service will be uninterrupted, timely, secure, or error-free; (b) the results obtained from use of the Service will be accurate, reliable, or complete; (c) any errors in the Service will be corrected; or (d) the Service will meet your specific requirements or expectations.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">4. Limitation of Liability</h3>
+                <p><strong style="color: var(--text);">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE DEVELOPER, ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO:</strong></p>
+                <ul style="margin: 12px 0 12px 20px; list-style: disc;">
+                    <li>Loss of profits, revenue, data, goodwill, or business opportunities;</li>
+                    <li>Erroneous or wrongful bans, kicks, mutes, or deletions of users or messages in your Telegram groups;</li>
+                    <li>Failure to detect or block spam, raids, bots, or malicious content;</li>
+                    <li>Service interruptions, server downtime, or infrastructure failures;</li>
+                    <li>Changes, modifications, or deprecation of the Telegram Bot API by Telegram;</li>
+                    <li>Unauthorized access to, alteration of, or loss of your data or configurations;</li>
+                    <li>Any actions taken by third parties, including Telegram or its affiliates;</li>
+                    <li>Any other matter relating to the Service.</li>
+                </ul>
+                <p>This limitation applies regardless of the legal theory (contract, tort, negligence, strict liability, or otherwise), even if the Developer has been advised of the possibility of such damages. In jurisdictions that do not allow the exclusion or limitation of certain damages, the Developer&rsquo;s liability shall be limited to the maximum extent permitted by law. In no event shall the Developer&rsquo;s total aggregate liability exceed the amount actually paid by you for the Service during the twelve (12) months preceding the claim.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">5. Assumption of Risk</h3>
+                <p>You expressly acknowledge and agree that your use of the Service is at your sole risk. You are solely responsible for any consequences arising from the Bot&rsquo;s moderation actions within your Telegram groups, including but not limited to false positives, missed detections, and any resulting disputes with your group members.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">6. Data Processing &amp; Privacy</h3>
+                <p>GuardBot processes only publicly available Telegram metadata strictly necessary for providing moderation services, including: Telegram User IDs, Chat IDs, message timestamps, message metadata (length, type, frequency), and technical event logs. <strong style="color: var(--text);">GuardBot does NOT store the content of messages on its servers.</strong> The Bot processes message content in real-time memory solely for spam detection and immediately discards it. No personal data is sold, rented, leased, or disclosed to any third party for marketing or commercial purposes. All processed data is used exclusively for the purpose of providing and improving the moderation Service. The Developer may retain anonymized, aggregated statistical data for analytical and service-improvement purposes.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">7. Termination &amp; Suspension</h3>
+                <p>The Developer reserves the absolute and unconditional right, at its sole discretion and without prior notice or liability, to: (a) suspend, restrict, or permanently terminate your access to the Service; (b) block any chat, group, or user from using the Service; (c) discontinue the Service entirely, temporarily or permanently; (d) modify, update, or remove any features or functionality of the Service. No refunds shall be issued upon termination unless explicitly required by applicable mandatory law. You may terminate your use of the Service at any time by removing the Bot from your Telegram groups.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">8. Indemnification</h3>
+                <p>You agree to indemnify, defend, and hold harmless the Developer and its affiliates from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to: (a) your use or misuse of the Service; (b) your violation of this Agreement; (c) your violation of any applicable law or regulation; or (d) any dispute between you and any third party arising from the Bot&rsquo;s operation in your groups.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">9. Modifications</h3>
+                <p>The Developer reserves the right to modify this Agreement at any time without prior notice. Changes become effective immediately upon publication. Your continued use of the Service after any modification constitutes acceptance of the updated terms. It is your responsibility to review this Agreement periodically.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">10. Governing Law &amp; Dispute Resolution</h3>
+                <p>This Agreement shall be governed by and construed in accordance with applicable international commercial law principles. Any disputes arising under or in connection with this Agreement shall be resolved through good-faith negotiation. If negotiation fails, disputes shall be submitted to binding arbitration in a jurisdiction of the Developer&rsquo;s choosing.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">11. Severability</h3>
+                <p>If any provision of this Agreement is held to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect. The invalid provision shall be modified to the minimum extent necessary to make it valid and enforceable while preserving its original intent.</p>
+
+                <h3 style="color: var(--text); font-size: 1.1rem; margin: 28px 0 12px; font-family: var(--font-heading);">12. Entire Agreement</h3>
+                <p>This Agreement constitutes the entire agreement between you and the Developer concerning the Service and supersedes all prior or contemporaneous communications, proposals, and representations, whether oral or written.</p>
+
+                <p style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.85rem;">By using GuardBot, you confirm that you have read, understood, and agree to be bound by these Terms of Service and Privacy Policy in their entirety.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cursor Glow Effect
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                // Using left/top exactly on cursor, CSS translate(-50%, -50%) centers it
+                cursorGlow.style.left = e.clientX + 'px';
+                cursorGlow.style.top = e.clientY + 'px';
+            });
+        });
+
+        // Dynamic Interactive Cards (3D Tilt & Light Border)
+        document.querySelectorAll('.interactive-card, .command-group').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                // Light border that follows mouse
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                // 3D Tilt effect
+                if (window.innerWidth > 768) {
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    // Reduced tilt multiplier from 3 to 1.5 for a softer, more premium effect
+                    const rotateX = ((y - centerY) / centerY) * -1.5; 
+                    const rotateY = ((x - centerX) / centerX) * 1.5;
+                    
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.01)`;
+                }
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+
+        // Language Switcher
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = 'en';
+
+        function updateLang(lang) {
+            currentLang = lang;
+            langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+            
+            document.querySelectorAll('[data-en][data-ru]').forEach(el => {
+                el.style.opacity = 0.5;
+                setTimeout(() => {
+                    el.innerHTML = el.getAttribute(`data-${lang}`);
+                    el.style.opacity = 1;
+                }, 100);
+            });
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if(btn.dataset.lang !== currentLang) updateLang(btn.dataset.lang);
+            });
+        });
+
+        updateLang(currentLang);
+
+        // Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+
+        function showPage(pageId) {
+            const currentActive = document.querySelector('.page.active');
+            if (currentActive && currentActive.id !== 'page-' + pageId) {
+                currentActive.style.opacity = 0;
+                setTimeout(() => {
+                    pages.forEach(p => p.classList.remove('active'));
+                    document.getElementById('page-' + pageId).classList.add('active');
+                    window.scrollTo({ top: 0 });
+                    
+                    setTimeout(() => {
+                        document.getElementById('page-' + pageId).style.opacity = 1;
+                        triggerReveals();
+                    }, 50);
+                }, 300);
+            } else {
+                document.getElementById('page-' + pageId)?.classList.add('active');
+                setTimeout(() => document.getElementById('page-' + pageId).style.opacity = 1, 50);
+            }
+
+            navLinks.forEach(l => l.classList.remove('active'));
+            document.querySelectorAll(`.nav-link[data-page="${pageId}"]`).forEach(l => l.classList.add('active'));
+            
+            if (window.innerWidth <= 768 && nav.classList.contains('open')) {
+                nav.classList.remove('open');
+            }
+        }
+
+        document.querySelectorAll('[data-page]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                showPage(link.dataset.page);
+            });
+        });
+
+        // Mobile Nav
+        const mobileToggle = document.getElementById('mobileToggle');
+        const nav = document.getElementById('nav');
+        mobileToggle?.addEventListener('click', () => nav.classList.toggle('open'));
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                document.querySelectorAll('.faq-item.open').forEach(openItem => {
+                    if(openItem !== item) openItem.classList.remove('open');
+                });
+                item.classList.toggle('open');
+            });
+        });
+
+        // IntersectionObserver for Reveals
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Modal Logic
+        const betaModal = document.getElementById('betaModal');
+        function openBetaModal() {
+            betaModal.classList.add('active');
+        }
+        function closeBetaModal() {
+            betaModal.classList.remove('active');
+        }
+        betaModal.addEventListener('click', (e) => {
+            if (e.target === betaModal) {
+                closeBetaModal();
+            }
+        });
+        // Legal Modal Logic
+        const legalModal = document.getElementById('legalModal');
+        function openLegalModal() {
+            legalModal.classList.add('active');
+        }
+        function closeLegalModal() {
+            legalModal.classList.remove('active');
+        }
+        legalModal.addEventListener('click', (e) => {
+            if (e.target === legalModal) {
+                closeLegalModal();
+            }
+        });
+
+
+        function triggerReveals() {
+            document.querySelectorAll('.page.active .reveal').forEach(el => {
+                el.classList.remove('active');
+                observer.observe(el);
+            });
+        }
+        
+        triggerReveals();
+
+        // Horizontal Scroll for Pricing Grid via Mouse Wheel
+        const pricingGrid = document.querySelector('.pricing-grid');
+        let isScrolling = false;
+        if (pricingGrid) {
+            pricingGrid.addEventListener('wheel', (evt) => {
+                if (evt.deltaY !== 0) {
+                    evt.preventDefault(); // Stop vertical page scroll completely when hovering here
+                    if (!isScrolling) {
+                        isScrolling = true;
+                        pricingGrid.scrollBy({ left: Math.sign(evt.deltaY) * 340, behavior: 'smooth' });
+                        setTimeout(() => { isScrolling = false; }, 400); // Wait for smooth scroll to finish before accepting next wheel jump
+                    }
+                }
+            }, { passive: false });
+        }
+    </script>
+</body>
+</html>
