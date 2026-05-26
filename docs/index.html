@@ -267,7 +267,19 @@
                         <p style="color: var(--cyan); margin-top: 15px; font-size: 0.9rem; opacity: 0.8;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg><span data-en="Scroll to see more plans" data-ru="Листайте вправо, чтобы увидеть все тарифы">Scroll to see more plans</span></p>
                     </div>
                     <div class="pricing-grid">
-                        <div class="pricing-card interactive-card reveal" style="transition-delay: 0ms;">
+                        <div class="pricing-card interactive-card beta-card reveal" style="transition-delay: 0ms; background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, var(--surface) 100%); border-color: rgba(255, 255, 255, 0.08);">
+                            <div class="pricing-badge" style="background: var(--cyan); color: #000; box-shadow: 0 4px 15px var(--cyan-glow);" data-en="Special" data-ru="Специально">Special</div>
+                            <h3 class="pricing-name" style="color: #fff;">Beta Access</h3>
+                            <div class="pricing-price">$0</div>
+                            <div class="pricing-period" data-en="100% Free" data-ru="100% Бесплатно">100% Free</div>
+                            <ul class="pricing-features">
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="All Premium Features" data-ru="Все Premium функции">All Premium Features</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="By Application Only" data-ru="Только по заявке">By Application Only</span></li>
+                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Zero cost forever*" data-ru="Навсегда бесплатно*">Zero cost forever*</span></li>
+                            </ul>
+                            <button class="btn btn-primary" onclick="openBetaModal()" data-en="Learn More" data-ru="Подробнее">Learn More</button>
+                        </div>
+                        <div class="pricing-card interactive-card reveal" style="transition-delay: 100ms;">
                             <h3 class="pricing-name">Basic</h3>
                             <div class="pricing-price">$3</div>
                             <div class="pricing-period" data-en="per month" data-ru="в месяц">per month</div>
@@ -278,7 +290,7 @@
                             </ul>
                             <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-en="Choose" data-ru="Выбрать">Choose</a>
                         </div>
-                        <div class="pricing-card interactive-card popular reveal" style="transition-delay: 100ms;">
+                        <div class="pricing-card interactive-card popular reveal" style="transition-delay: 200ms;">
                             <div class="pricing-badge" data-en="Most Popular" data-ru="Популярный">Most Popular</div>
                             <h3 class="pricing-name">Pro</h3>
                             <div class="pricing-price">$8</div>
@@ -314,18 +326,6 @@
                                 <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="First-priority support" data-ru="Первоочередная поддержка">First-priority support</span></li>
                             </ul>
                             <a href="https://t.me/ForGuardPayBot" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" data-en="Choose" data-ru="Выбрать">Choose</a>
-                        </div>
-                        <div class="pricing-card interactive-card beta-card reveal" style="transition-delay: 400ms; background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, var(--surface) 100%); border-color: rgba(255, 255, 255, 0.08);">
-                            <div class="pricing-badge" style="background: var(--cyan); color: #000; box-shadow: 0 4px 15px var(--cyan-glow);" data-en="Special" data-ru="Специально">Special</div>
-                            <h3 class="pricing-name" style="color: #fff;">Beta Access</h3>
-                            <div class="pricing-price">$0</div>
-                            <div class="pricing-period" data-en="100% Free" data-ru="100% Бесплатно">100% Free</div>
-                            <ul class="pricing-features">
-                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="All Premium Features" data-ru="Все Premium функции">All Premium Features</span></li>
-                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="By Application Only" data-ru="Только по заявке">By Application Only</span></li>
-                                <li><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> <span data-en="Zero cost forever*" data-ru="Навсегда бесплатно*">Zero cost forever*</span></li>
-                            </ul>
-                            <button class="btn btn-primary" onclick="openBetaModal()" data-en="Learn More" data-ru="Подробнее">Learn More</button>
                         </div>
                     </div>
                 </div>
